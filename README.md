@@ -11,5 +11,7 @@ This verion relies on https://status.pokemongoserver.com, and won't sample the s
 Best prectice is to run using [PM2](https://www.npmjs.com/package/pm2):
 
 ```shell
+$ git clone git@github.com:CommonRaven/PokePush.git
+$ cd PokePush
 $ PUSHBULLET_KEY=your_key pm2 start index.js
 ```
