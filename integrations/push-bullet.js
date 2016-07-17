@@ -18,8 +18,8 @@ module.exports = (currentStatus, previousStatus, timestamp) => {
     if (!pusher) {
         return Promise.resolve();
     }
-    return pusher.noteAsync('ujAwn5dAxi0sjAdP9ajVsq', `PG ${currentStatus}`, `Status change:\n${previousStatus} -> ${currentStatus}\n\n${timestamp}`)
+    return pusher.noteAsync(key, `Pokémon Go ${currentStatus}`, `Status change:\n${previousStatus} -> ${currentStatus}`)
         .catch(err => {
-            console.wan(`error sending pushbullet message: ${err}`);
+            console.warn(`error sending pushbullet message: ${err}`);
         });
 };
