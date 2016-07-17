@@ -33,7 +33,7 @@ module.exports = (currentStatus, previousStatus, timestamp) => {
             color = undefined;
     }
     let message = {
-        text: `Servers status changed (${timestamp})`,
+        text: `Servers status changed!`,
         attachments: [
             {
                 color: color,
