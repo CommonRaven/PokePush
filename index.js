@@ -38,3 +38,10 @@ function tick() {
         }
     });
 }
+
+function getStatus(body) {
+    var find = '<h2>Status:';
+    body = body.substring(body.indexOf(find) + find.length);
+    body = body.split('>')[1].split('<')[0];
+    return body;
+}
