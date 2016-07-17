@@ -11,8 +11,11 @@
   "author": "Nitai J. Perez <nitai.perez@gmail.com> (https://github.com/NitaiPerez)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.4.1",
+    "co": "^4.6.0",
     "dateformat": "^1.0.12",
     "later": "^1.2.0",
+    "node-slack": "0.0.7",
     "pushbullet": "^1.4.3",
     "request": "^2.73.0"
   },
