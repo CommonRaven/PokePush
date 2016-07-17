@@ -1,5 +1,5 @@
 # PokePush
-Temporary, tiny pokemon GO server status updated via Pushbullet.
+Temporary, tiny pokemon GO server status updated via Pushbullet / Slack.
 This verion relies on https://status.pokemongoserver.com, and won't sample the server directly.
 
 ## Running
