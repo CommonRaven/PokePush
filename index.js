@@ -40,6 +40,7 @@ function tick() {
             console.log(' > no change.');
         } else {
             console.log(`> status changed: ${prevStatus} -> ${status}`);
+            prevStatus = status;
             return integrations.send(status, prevStatus, ts);
         }
     });
