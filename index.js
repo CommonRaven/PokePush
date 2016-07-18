@@ -17,8 +17,8 @@ var lastStatus = {
     status: 'Online'
 };
 
-// later.setInterval(tick, later.parse.recur().every(5).minute());
-// tick();
+later.setInterval(tick, later.parse.recur().every(5).minute());
+tick();
 
 function getStatus(body) {
     var find = '<h2>Status:';
