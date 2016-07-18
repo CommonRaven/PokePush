@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "xo": "./node_modules/.bin/xo",
-    "shx": "./node_modules/.bin/shx"
+    "shx": "./node_modules/.bin/shx",
+    "travis": "npm run xo"
   },
   "author": "Nitai J. Perez <nitai.perez@gmail.com> (https://github.com/NitaiPerez)",
   "license": "MIT",
