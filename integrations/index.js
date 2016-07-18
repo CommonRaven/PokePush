@@ -6,9 +6,9 @@
 const slack = require('./slack');
 const pushBullet = require('./push-bullet');
 
-module.exports.send = (currentStatus, previousStatus, timestamp) => {
+module.exports.send = (currentStatus, previousStatus) => {
     return Promise.any([
-        slack(currentStatus, previousStatus, timestamp),
-        pushBullet(currentStatus, previousStatus, timestamp)
+        slack(currentStatus, previousStatus),
+        pushBullet(currentStatus, previousStatus)
     ]);
 };
