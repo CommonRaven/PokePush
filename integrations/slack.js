@@ -13,7 +13,7 @@ if (hookUrl) {
     slack = new Slack(hookUrl);
 }
 
-module.exports = (currentStatus, previousStatus, timestamp) => {
+module.exports = (currentStatus, previousStatus) => {
     if (!slack) {
         return Promise.resolve();
     }
@@ -33,7 +33,7 @@ module.exports = (currentStatus, previousStatus, timestamp) => {
             color = undefined;
     }
     let message = {
-        text: `Servers status changed!`,
+        text: `Servers status changed: ${currentStatus}`,
         attachments: [
             {
                 color: color,

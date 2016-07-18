@@ -14,7 +14,7 @@ if (key) {
     pusher = Promise.promisifyAll(new PushBullet(key));
 }
 
-module.exports = (currentStatus, previousStatus, timestamp) => {
+module.exports = (currentStatus, previousStatus) => {
     if (!pusher) {
         return Promise.resolve();
     }
