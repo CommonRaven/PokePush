@@ -14,7 +14,7 @@ const integrations = require('./integrations');
 
 var lastStatus = {
     lastChange: Date.now(),
-    status: 'Online'
+    status: 'Server Respawn'
 };
 
 later.setInterval(tick, later.parse.recur().every(5).minute());
