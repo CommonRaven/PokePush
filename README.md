@@ -10,7 +10,7 @@ This verion relies on https://status.pokemongoserver.com, and won't sample the s
   - pushbullet
 2. Set your integration key (an integration that is not configured will not be activated):
   - slack : set Webhook URL in an environment variable names `SLACK_URL`.
-  - pushbullet : set pushbullet key in an environment variable named `PUSHBULLET_KEY`.
+  - pushbullet : set pushbullet device iden in an environment variable named `PUSHBULLET_KEY`.
 3. run `$ node index`
 
 Best prectice is to run using [PM2](https://www.npmjs.com/package/pm2):
