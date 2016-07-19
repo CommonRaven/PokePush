@@ -42,11 +42,12 @@ function tick() {
             console.log(' > no change.');
         } else {
             console.log(`> status changed: ${lastStatus.status} -> ${status}`);
+            integrations.send(status, lastStatus.status);
             lastStatus = {
                 status: status,
                 lastChange: Date.now()
             };
-            return integrations.send(status, lastStatus.status);
+            return; 
         }
     });
 }
