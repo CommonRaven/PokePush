@@ -18,7 +18,7 @@ var lastStatus = {
 };
 
 later.setInterval(tick, later.parse.recur().every(2).minute());
-tick();
+tick(true);
 
 function getStatus(body) {
     var find = '<h2>Status:';
@@ -27,7 +27,7 @@ function getStatus(body) {
     return body;
 }
 
-function tick() {
+function tick(disableReport) {
     return co(function *() {
         console.log(`Checking server status (${(new Date())})`);
         let status;
@@ -47,7 +47,9 @@ function tick() {
                 status: status,
                 lastChange: Date.now()
             };
-            yield integrations.send(status, lastStatusText);
+            if(disableReport !== true) {
+                yield integrations.send(status, lastStatusText);                
+            }
         }
     }).catch(console.error);
 }
