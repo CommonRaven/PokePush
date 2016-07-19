@@ -17,7 +17,7 @@ var lastStatus = {
     status: 'Server Respawn'
 };
 
-later.setInterval(tick, later.parse.recur().every(5).minute());
+later.setInterval(tick, later.parse.recur().every(5).second());
 tick();
 
 function getStatus(body) {
@@ -47,16 +47,13 @@ function tick() {
                 status: status,
                 lastChange: Date.now()
             };
-            return; 
         }
     });
 }
 
-//We need a function which handles requests and send response
 function handleRequest(req, res) {
-
     switch (req.url.toLowerCase()) {
-        case "/json":
+        case '/json':
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.end(JSON.stringify(lastStatus));
             break;
@@ -66,7 +63,6 @@ function handleRequest(req, res) {
     }
 }
 
-//Create a server
 http.createServer(handleRequest).listen(80, () => {
-    console.log("Server listening on 80");
+    console.log('Server listening on 80');
 });
