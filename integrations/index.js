@@ -2,6 +2,7 @@
  * Created by idoschachter on 17/07/2016.
  */
 'use strict';
+const Promise = require('bluebird');
 
 const slack = require('./slack');
 const pushBullet = require('./push-bullet');
