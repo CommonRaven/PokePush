@@ -42,7 +42,7 @@ function tick() {
             console.log(' > no change.');
         } else {
             console.log(`> status changed: ${lastStatus.status} -> ${status}`);
-            lastStatus.status = {
+            lastStatus = {
                 status: status,
                 lastChange: Date.now()
             };
