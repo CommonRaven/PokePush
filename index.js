@@ -17,7 +17,7 @@ var lastStatus = {
     status: 'Server Respawn'
 };
 
-later.setInterval(tick, later.parse.recur().every(5).second());
+later.setInterval(tick, later.parse.recur().every(2).minute());
 tick();
 
 function getStatus(body) {
@@ -41,14 +41,15 @@ function tick() {
         if (lastStatus.status === status) {
             console.log(' > no change.');
         } else {
-            console.log(`> status changed: ${lastStatus.status} -> ${status}`);
-            integrations.send(status, lastStatus.status);
+            let lastStatusText = lastStatus.status;
+            console.log(`> status changed: ${lastStatusText} -> ${status}`);
             lastStatus = {
                 status: status,
                 lastChange: Date.now()
             };
+            yield integrations.send(status, lastStatusText);
         }
-    });
+    }).catch(console.error);
 }
 
 function handleRequest(req, res) {
