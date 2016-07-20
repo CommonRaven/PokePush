@@ -8,6 +8,7 @@
 const http = require('http');
 const co = require('co');
 const later = require('later');
+const express = require('express');
 
 const request = require('./request');
 const integrations = require('./integrations');
@@ -47,25 +48,17 @@ function tick(disableReport) {
                 status: status,
                 lastChange: Date.now()
             };
-            if(disableReport !== true) {
                 yield integrations.send(status, lastStatusText);                
+            if (disableReport !== true) {
             }
         }
     }).catch(console.error);
 }
 
-function handleRequest(req, res) {
-    switch (req.url.toLowerCase()) {
-        case '/json':
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            res.end(JSON.stringify(lastStatus));
-            break;
-        default:
-            res.writeHead(404, {'Content-Type': 'text/plain'});
-            res.end(`We don't know any ${req.url.toLowerCase()}, nothing to see here.`);
-    }
-}
+var app = express();
 
-http.createServer(handleRequest).listen(80, () => {
-    console.log('Server listening on 80');
+app.get('/json', (req, res) => {
+    res.json(lastStatus);
 });
+
+module.exports = app;
